@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57740b6060d854e9746f302c836d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
-  velInimigo: 50
+  velInimigo: 150
 --- !u!114 &1362874697393600303
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ TagManager:
   - Inimigo
   - ColisorInimigo
   - SpawnerController
+  - MoedasController
   layers:
   - Default
   - TransparentFX
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: SkinPlayer
     uniqueID: 399613647
+    locked: 0
+  - name: UI
+    uniqueID: 860670845
     locked: 0
   m_RenderingLayers:
   - Default

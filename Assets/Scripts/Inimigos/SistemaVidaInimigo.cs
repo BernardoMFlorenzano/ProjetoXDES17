@@ -4,6 +4,8 @@ using UnityEngine;
 public class SistemaVidaInimigo : MonoBehaviour
 {
     [SerializeField] private float vidaMax;
+    [SerializeField] private int qntMoedas = 1;
+    private ControllerMoedas moedasController;
     private float vidaAtual;
     private Rigidbody2D rb;
     private SpawnerInimigos spawnerInimigos;
@@ -14,6 +16,7 @@ public class SistemaVidaInimigo : MonoBehaviour
         vidaAtual = vidaMax;
         rb = GetComponent<Rigidbody2D>();
         spawnerInimigos = GameObject.FindGameObjectWithTag("SpawnerController").GetComponent<SpawnerInimigos>();
+        moedasController = GameObject.FindGameObjectWithTag("MoedasController").GetComponent<ControllerMoedas>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class SistemaVidaInimigo : MonoBehaviour
         if (vidaAtual <= 0)
         {
             spawnerInimigos.contInimigos--;
+            moedasController.AdicionaMoedas(qntMoedas);
             Destroy(gameObject);
         }
 

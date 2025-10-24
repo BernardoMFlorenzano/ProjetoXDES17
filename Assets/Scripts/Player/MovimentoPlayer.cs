@@ -26,4 +26,11 @@ public class MovimentoPlayer : MonoBehaviour
             animatorPlayer.SetFloat("Vel", Mathf.Abs(direcaoMov.magnitude));
         rb.linearVelocity = direcaoMov * velPlayer;
     }
+
+
+    // Função temporaria pra fechar o jogo
+    void OnSai()
+    {
+        Application.Quit();
+    }
 }

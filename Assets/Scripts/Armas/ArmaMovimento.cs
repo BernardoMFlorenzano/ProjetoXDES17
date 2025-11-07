@@ -12,6 +12,7 @@ public class ArmaMovimento : MonoBehaviour
     private Transform comecoBraco;
     private float distancia;
     private bool playerVirado = false;
+    private GameObject armaAtual;
     [SerializeField] private Transform transformPlayer;
     [SerializeField] private float distanciaMax;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +20,7 @@ public class ArmaMovimento : MonoBehaviour
     {
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         comecoBraco = transform.parent;
+        armaAtual = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -62,4 +64,11 @@ public class ArmaMovimento : MonoBehaviour
         playerVirado = !playerVirado;
         transformPlayer.Rotate(0, 180, 0); // roda em 180 para objeto flipar
     }
+
+    public void TrocaArma(GameObject novaArma)
+    {
+        Destroy(armaAtual);
+        armaAtual = Instantiate(novaArma, this.transform);
+    }
+
 }

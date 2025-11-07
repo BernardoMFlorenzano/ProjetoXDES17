@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1a8d51224d7acb14eb4151c776e979a8
+guid: 020169967d74c3b4eaf1e0622c5894ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8977685293378443036
-    second: slime3_0
+      213: -2014771838305702419
+    second: 38_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slime3_0
+      name: 38_0
       rect:
         serializedVersion: 2
-        x: 47
+        x: 1
         y: 0
-        width: 165
-        height: 95
+        width: 79
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e8edee9acad86380800000000000000
-      internalID: -8977685293378443036
+      spriteID: dede35210b71a04e0800000000000000
+      internalID: -2014771838305702419
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      slime3_0: -8977685293378443036
+      38_0: -2014771838305702419
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

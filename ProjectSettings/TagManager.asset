@@ -57,6 +57,9 @@ TagManager:
   - name: SkinPlayer
     uniqueID: 399613647
     locked: 0
+  - name: Armas
+    uniqueID: 1980476957
+    locked: 0
   - name: UI
     uniqueID: 860670845
     locked: 0

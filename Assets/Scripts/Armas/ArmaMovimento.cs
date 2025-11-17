@@ -67,8 +67,11 @@ public class ArmaMovimento : MonoBehaviour
 
     public void TrocaArma(GameObject novaArma)
     {
-        Destroy(armaAtual);
-        armaAtual = Instantiate(novaArma, this.transform);
+        if (armaAtual != null)
+            Destroy(armaAtual);
+        
+        if (novaArma != null)
+            armaAtual = Instantiate(novaArma, this.transform);
     }
 
 }

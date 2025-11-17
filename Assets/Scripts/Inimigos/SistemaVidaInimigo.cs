@@ -16,7 +16,7 @@ public class SistemaVidaInimigo : MonoBehaviour
         vidaAtual = vidaMax;
         rb = GetComponent<Rigidbody2D>();
         spawnerInimigos = GameObject.FindGameObjectWithTag("SpawnerController").GetComponent<SpawnerInimigos>();
-        moedasController = GameObject.FindGameObjectWithTag("MoedasController").GetComponent<ControllerMoedas>();
+        moedasController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ControllerMoedas>();
     }
 
     // Update is called once per frame

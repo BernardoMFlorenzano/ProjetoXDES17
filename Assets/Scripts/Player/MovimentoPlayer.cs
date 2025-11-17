@@ -7,36 +7,37 @@ public class MovimentoPlayer : MonoBehaviour
     [SerializeField] private Animator animatorPlayer;
     private Vector2 direcaoMov;
     private Rigidbody2D rb;
-    [Header("Teste")]
-    [SerializeField] private ArmaMovimento armaScript;
-    [SerializeField] private GameObject arma1;
-    [SerializeField] private GameObject arma2;
-    private int armaAtual = 1;
+
+    [Header("Atributos")]
+    public float multDano = 1f;
+    public float multKnockback = 1f;
+    public float multMovimento = 1f;
+    public float multVida = 1f;
+    public float multRegen = 1f;
+
+    // melee
+    public float multTamanho = 1f;
+    public float multReflete = 1f;
+
+    // range
+    public float multDelayTiro = 1f;
+    public int penetracaoBonus = 0;
+
+    [Header("Arma")]
+    public ArmaMovimento armaScript;
+
+    private GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     void OnMove(InputValue direcao)
     {
         direcaoMov = direcao.Get<Vector2>().normalized;
-    }
-
-    void OnTrocaArma()
-    {
-        if (armaAtual == 1)
-        {
-            armaScript.TrocaArma(arma2);
-            armaAtual = 2;
-        }
-        else
-        {
-            armaScript.TrocaArma(arma1);
-            armaAtual = 1;
-        }
-            
     }
 
     // Update is called once per frame
@@ -47,10 +48,15 @@ public class MovimentoPlayer : MonoBehaviour
         rb.linearVelocity = direcaoMov * velPlayer;
     }
 
-
-    // Função temporaria pra fechar o jogo
-    void OnSai()
+    public void TrocaArmaPlayer(GameObject armaNova)
     {
-        Application.Quit();
+        armaScript.TrocaArma(armaNova);
+    }
+
+
+    // Função pra pausar o jogo
+    void OnPausa()
+    {
+        gameManager.PausaJogo();
     }
 }

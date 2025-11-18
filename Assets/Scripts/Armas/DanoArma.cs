@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class DanoArma : MonoBehaviour
 {
-    [SerializeField] private float dano;
-    [SerializeField] private float knockback;
+    public float dano;
+    public float knockback;
+    public float tamanhoMult;
+    public float reflecao;
     private SistemaVidaInimigo sistemaVidaInimigo;
     private Transform player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +18,11 @@ public class DanoArma : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AtualizaAtributos()
+    {
+        transform.localScale = new Vector3(1 * tamanhoMult, 1 * tamanhoMult, 1);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

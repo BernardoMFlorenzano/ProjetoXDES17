@@ -25,8 +25,14 @@ public class MovimentoPlayer : MonoBehaviour
 
     [Header("Arma")]
     public ArmaMovimento armaScript;
+    public GameObject armaInicial;
 
     private GameManager gameManager;
+
+    void Awake()
+    {
+        TrocaArmaPlayer(armaInicial);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,7 +56,7 @@ public class MovimentoPlayer : MonoBehaviour
 
     public void TrocaArmaPlayer(GameObject armaNova)
     {
-        armaScript.TrocaArma(armaNova);
+        armaScript.TrocaArma(armaNova, multDano, multKnockback, multTamanho, multReflete, multDelayTiro, penetracaoBonus);
     }
 
 

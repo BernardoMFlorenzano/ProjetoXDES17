@@ -152,3 +152,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DanoArma
   dano: 5
   knockback: 25
+  tamanhoMult: 1
+  reflecao: 0

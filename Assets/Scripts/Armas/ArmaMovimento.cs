@@ -65,13 +65,36 @@ public class ArmaMovimento : MonoBehaviour
         transformPlayer.Rotate(0, 180, 0); // roda em 180 para objeto flipar
     }
 
-    public void TrocaArma(GameObject novaArma)
+    public void TrocaArma(GameObject novaArma, float multDano, float multKnockback, float multTamanho, float multReflete, float multDelayTiro, int penetracaoBonus)
     {
         if (armaAtual != null)
             Destroy(armaAtual);
         
         if (novaArma != null)
+        {
             armaAtual = Instantiate(novaArma, this.transform);
+
+            TiroArma armaRange = armaAtual.GetComponent<TiroArma>();
+            DanoArma armaMelee = armaAtual.GetComponent<DanoArma>();
+
+            if (armaRange != null)
+            {
+                armaRange.dano = armaRange.dano * multDano;
+                armaRange.knockback = armaRange.knockback * multKnockback;
+                armaRange.penetracao = armaRange.penetracao + penetracaoBonus;
+                armaRange.delayTiro = armaRange.delayTiro / multDelayTiro;
+            }
+
+            if (armaMelee != null)
+            {
+                armaMelee.dano = armaMelee.dano * multDano;
+                armaMelee.knockback = armaMelee.knockback * multKnockback;
+                armaMelee.tamanhoMult = armaMelee.tamanhoMult * multTamanho;
+                armaMelee.reflecao = armaMelee.reflecao + multReflete;
+                armaMelee.AtualizaAtributos();
+            }
+        }
+            
     }
 
 }

@@ -4,13 +4,15 @@ public class SlotArma : MonoBehaviour
 {
     public GameObject armaAtual; 
     private GameObject player;
+    private MovimentoPlayer atributosPlayer;
     private ArmaMovimento armaScript;
     public int tipo; // 0 == Arma principal player, 1 == Arma companion 1, 2 == Arma companion 2, 3 == Arma companion 3
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        armaScript = player.GetComponent<MovimentoPlayer>().armaScript;
+        atributosPlayer = player.GetComponent<MovimentoPlayer>();
+        armaScript = atributosPlayer.armaScript;
 
         //TrocaArma();
     }
@@ -39,11 +41,11 @@ public class SlotArma : MonoBehaviour
     {
         if (armaAtual != null)
         {
-            armaScript.TrocaArma(armaAtual.GetComponent<ItemDrag>().itemReal);
+            armaScript.TrocaArma(armaAtual.GetComponent<ItemDrag>().itemReal,atributosPlayer.multDano,atributosPlayer.multKnockback,atributosPlayer.multTamanho,atributosPlayer.multReflete,atributosPlayer.multDelayTiro,atributosPlayer.penetracaoBonus);
         }
         else
         {
-            armaScript.TrocaArma(null);
+            armaScript.TrocaArma(null, atributosPlayer.multDano,atributosPlayer.multKnockback,atributosPlayer.multTamanho,atributosPlayer.multReflete,atributosPlayer.multDelayTiro, atributosPlayer.penetracaoBonus);
         }
     }
 }

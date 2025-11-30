@@ -13,8 +13,15 @@ public class ArmaMovimento : MonoBehaviour
     private float distancia;
     private bool playerVirado = false;
     private GameObject armaAtual;
+    private GameManager gameManager;
     [SerializeField] private Transform transformPlayer;
     [SerializeField] private float distanciaMax;
+
+    void Awake()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,7 +72,7 @@ public class ArmaMovimento : MonoBehaviour
         transformPlayer.Rotate(0, 180, 0); // roda em 180 para objeto flipar
     }
 
-    public void TrocaArma(GameObject novaArma, float multDano, float multKnockback, float multTamanho, float multReflete, float multDelayTiro, int penetracaoBonus)
+    public void TrocaArma(GameObject novaArma)
     {
         if (armaAtual != null)
             Destroy(armaAtual);
@@ -79,18 +86,18 @@ public class ArmaMovimento : MonoBehaviour
 
             if (armaRange != null)
             {
-                armaRange.dano = armaRange.dano * multDano;
-                armaRange.knockback = armaRange.knockback * multKnockback;
-                armaRange.penetracao = armaRange.penetracao + penetracaoBonus;
-                armaRange.delayTiro = armaRange.delayTiro / multDelayTiro;
+                armaRange.dano *= gameManager.multDano;
+                armaRange.knockback *= gameManager.multKnockback;
+                armaRange.penetracao += gameManager.penetracaoBonus;
+                armaRange.delayTiro /= gameManager.multDelayTiro;
             }
 
             if (armaMelee != null)
             {
-                armaMelee.dano = armaMelee.dano * multDano;
-                armaMelee.knockback = armaMelee.knockback * multKnockback;
-                armaMelee.tamanhoMult = armaMelee.tamanhoMult * multTamanho;
-                armaMelee.reflecao = armaMelee.reflecao + multReflete;
+                armaMelee.dano *= gameManager.multDano;
+                armaMelee.knockback *= gameManager.multKnockback;
+                armaMelee.tamanhoMult *= gameManager.multTamanho;
+                armaMelee.reflecao += gameManager.refleteBonus;
                 armaMelee.AtualizaAtributos();
             }
         }

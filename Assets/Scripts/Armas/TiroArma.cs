@@ -5,7 +5,7 @@ public class TiroArma : MonoBehaviour
 {
     public float dano;
     public float knockback;
-    public int penetracao = 0;    // 0 é padrão
+    public int penetracao;
     public float delayTiro;
     public float velTiro;
 

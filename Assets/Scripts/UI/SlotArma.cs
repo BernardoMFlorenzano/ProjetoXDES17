@@ -41,11 +41,11 @@ public class SlotArma : MonoBehaviour
     {
         if (armaAtual != null)
         {
-            armaScript.TrocaArma(armaAtual.GetComponent<ItemDrag>().itemReal,atributosPlayer.multDano,atributosPlayer.multKnockback,atributosPlayer.multTamanho,atributosPlayer.multReflete,atributosPlayer.multDelayTiro,atributosPlayer.penetracaoBonus);
+            armaScript.TrocaArma(armaAtual.GetComponent<ItemDrag>().itemReal);
         }
         else
         {
-            armaScript.TrocaArma(null, atributosPlayer.multDano,atributosPlayer.multKnockback,atributosPlayer.multTamanho,atributosPlayer.multReflete,atributosPlayer.multDelayTiro, atributosPlayer.penetracaoBonus);
+            armaScript.TrocaArma(null);
         }
     }
 }

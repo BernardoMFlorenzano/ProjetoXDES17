@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fa1314147bfe26749a2acc5699025c61
+guid: dd27100e80746554dbb373dd24868abb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8187247647415049475
-    second: AglomeradoVer1_0
+      213: 1772339682297158205
+    second: siames2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AglomeradoVer1_0
+      name: siames2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 13
         y: 0
-        width: 500
-        height: 300
+        width: 226
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30d93508b52fe9170800000000000000
-      internalID: 8187247647415049475
+      spriteID: d3a96a00d8d989810800000000000000
+      internalID: 1772339682297158205
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AglomeradoVer1_0: 8187247647415049475
+      siames2_0: 1772339682297158205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 67dc897febc532b4282643664ee38e95
+guid: 161a2a10e0fb34c4285d7d1717d46dad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7950527766830574949
-    second: itatapatatap_0
+      213: 5417437681742634097
+    second: mjoulnir_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.1, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: itatapatatap_0
+      name: mjoulnir_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
+        x: 2
+        y: 21
+        width: 144
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b921f29ae1d0aa190800000000000000
-      internalID: -7950527766830574949
+      spriteID: 17cd5156eda9e2b40800000000000000
+      internalID: 5417437681742634097
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      itatapatatap_0: -7950527766830574949
+      mjoulnir_0: 5417437681742634097
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

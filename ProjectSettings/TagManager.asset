@@ -8,6 +8,7 @@ TagManager:
   - ColisorInimigo
   - SpawnerController
   - GameManager
+  - Coracao
   layers:
   - Default
   - TransparentFX

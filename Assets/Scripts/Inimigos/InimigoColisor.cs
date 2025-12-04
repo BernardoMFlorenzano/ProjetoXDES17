@@ -7,9 +7,9 @@ public class InimigoColisor : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Coracao"))
         {
-            sistemaVidaPlayer = collision.GetComponent<SistemaVidaPlayer>();
+            sistemaVidaPlayer = collision.transform.parent.GetComponent<SistemaVidaPlayer>();
             if (sistemaVidaPlayer)
             {
                 sistemaVidaPlayer.LevaDano(dano);

@@ -7,8 +7,9 @@ using Random = UnityEngine.Random;
 public class SpawnerInimigos : MonoBehaviour
 {
     private Coroutine corSpawn;
+    private GameManager gameManager;
     private List<Transform> spawnPoints;
-    public List<GameObject> Inimigos;
+    public List<GameObject> inimigos;
     public float delaySpawn;
     public bool podeSpawnar;
     private int spawnPos;
@@ -16,10 +17,13 @@ public class SpawnerInimigos : MonoBehaviour
 
     public int contInimigos = 0;
     public int maxInimigos = 50;
+    public int inimigosSpawnados = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
         spawnPoints = new List<Transform>();
         foreach (Transform child in transform)
         {
@@ -32,26 +36,36 @@ public class SpawnerInimigos : MonoBehaviour
         corSpawn = StartCoroutine(Spawn());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
     public IEnumerator Spawn()
     {
-        while (podeSpawnar)
+        while (true)
         {
-            spawnPos = Random.Range(0, spawnPoints.Count);
-            inimigoEscolha = Random.Range(0, Inimigos.Count);
-
-            if (contInimigos < maxInimigos)
+            if (podeSpawnar)
             {
-                Instantiate(Inimigos[inimigoEscolha], spawnPoints[spawnPos].position, quaternion.identity);
-                contInimigos++;
+                spawnPos = Random.Range(0, spawnPoints.Count);
+                inimigoEscolha = Random.Range(0, inimigos.Count);
+
+                if (contInimigos < maxInimigos)
+                {
+                    Instantiate(inimigos[inimigoEscolha], spawnPoints[spawnPos].position, quaternion.identity);
+                    contInimigos++;
+                    if(!gameManager.lutandoComBoss)
+                        inimigosSpawnados++;
+                }
             }
-            
             yield return new WaitForSeconds(delaySpawn);
         }
+    }
+
+    public void SpawnInimigo(GameObject inimigo)
+    {
+        spawnPos = Random.Range(0, spawnPoints.Count);
+        Instantiate(inimigo, spawnPoints[spawnPos].position, quaternion.identity);
+    }
+
+    public void Respawn(Transform inimigoRespawnado)
+    {
+        spawnPos = Random.Range(0, spawnPoints.Count);
+        inimigoRespawnado.position = spawnPoints[spawnPos].position;
     }
 }

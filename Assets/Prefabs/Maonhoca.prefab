@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57740b6060d854e9746f302c836d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
+  distanciaPlayerMax: 30
   velInimigo: 150
 --- !u!114 &1362874697393600303
 MonoBehaviour:
@@ -283,6 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SistemaVidaInimigo
   vidaMax: 50
   qntMoedas: 1
+  spawnerInimigos: {fileID: 0}
+  efeitoMorte: {fileID: 8784274052710163401, guid: 2fa0f6c57dbbec0408d31400c7caf5d0, type: 3}
 --- !u!114 &2861837195860238081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,8 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5567fb3aa5813b74a91abe424c9d6466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoAtira
-  delayTiro: 0
-  tiroPrefabs: []
+  delayTiro: 5
+  tiroPrefabs:
+  - {fileID: 4209256616418656346, guid: 748afc3f7baadac4f8b88ddf8bade4f3, type: 3}
   pontaArma: {fileID: 408597597163911013}
   podeAtirar: 1
 --- !u!1 &7495098538070377453

@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57740b6060d854e9746f302c836d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
+  distanciaPlayerMax: 30
   velInimigo: 150
 --- !u!114 &1362874697393600303
 MonoBehaviour:
@@ -250,6 +251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SistemaVidaInimigo
   vidaMax: 50
   qntMoedas: 1
+  spawnerInimigos: {fileID: 0}
+  efeitoMorte: {fileID: 8784274052710163401, guid: 2fa0f6c57dbbec0408d31400c7caf5d0, type: 3}
 --- !u!1 &7495098538070377453
 GameObject:
   m_ObjectHideFlags: 0

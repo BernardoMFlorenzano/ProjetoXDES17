@@ -10,6 +10,8 @@ public class MovTiroInimigo : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 direcao;
     private SistemaVidaPlayer sistemaVidaPlayer;
+    private DanoArma armaMeele;
+    public bool refletido = false;
 
     void Start()
     {
@@ -34,6 +36,18 @@ public class MovTiroInimigo : MonoBehaviour
             }
 
             Destroy(gameObject);
+        }
+
+        else if(collision.CompareTag("ArmaMeele") && !refletido)
+        {
+            armaMeele = collision.GetComponent<DanoArma>();
+            float refleteChance = Random.Range(0f, 1f);
+            if (refleteChance <= armaMeele.reflecao)
+            {
+                rb.linearVelocity = -rb.linearVelocity;
+                refletido = true;   
+            }
+            
         }
     }
 

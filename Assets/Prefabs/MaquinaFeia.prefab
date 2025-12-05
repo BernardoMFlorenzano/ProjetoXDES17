@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &602435014152583612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6097913146233103039}
+  m_Layer: 8
+  m_Name: Boca1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6097913146233103039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602435014152583612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8863266129557757743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1381212701325984538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 823826362114177279}
+  m_Layer: 8
+  m_Name: Boca2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &823826362114177279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381212701325984538}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8863266129557757743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1907077217685905397
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +73,7 @@ GameObject:
   - component: {fileID: 5397037651931176282}
   - component: {fileID: 8247861056839546722}
   - component: {fileID: 6495911826394113456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +188,8 @@ GameObject:
   - component: {fileID: 4233570956418070986}
   - component: {fileID: 9015254453779172057}
   - component: {fileID: 1362874697393600303}
-  m_Layer: 0
+  - component: {fileID: 5700515462030924848}
+  m_Layer: 8
   m_Name: MaquinaFeia
   m_TagString: Inimigo
   m_Icon: {fileID: 0}
@@ -148,6 +211,9 @@ Transform:
   m_Children:
   - {fileID: 5397037651931176282}
   - {fileID: 3754823740441224218}
+  - {fileID: 6097913146233103039}
+  - {fileID: 823826362114177279}
+  - {fileID: 5015961053824973855}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3201409168356574032
@@ -235,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57740b6060d854e9746f302c836d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
+  distanciaPlayerMax: 30
   velInimigo: 0
 --- !u!114 &1362874697393600303
 MonoBehaviour:
@@ -248,8 +315,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e4884bde29a30439e0f2448614ab36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SistemaVidaInimigo
-  vidaMax: 1000
+  vidaMax: 2000
   qntMoedas: 1
+  spawnerInimigos: {fileID: 0}
+  efeitoMorte: {fileID: 8784274052710163401, guid: 2fa0f6c57dbbec0408d31400c7caf5d0, type: 3}
+--- !u!114 &5700515462030924848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898862886088157649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58fd31a301481b4588dea3a7a297333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnInimigoFilho
+  forcaImpulsoSpawn: 10
+  tipoSpawn: 0
+  spawnPoints:
+  - {fileID: 6097913146233103039}
+  - {fileID: 823826362114177279}
+  - {fileID: 5015961053824973855}
+  inimigos:
+  - {fileID: 2898862886088157649, guid: a9acbcc2ffb0ab943923009993af316e, type: 3}
+  - {fileID: 2898862886088157649, guid: 8158f257d00d66640ab7514f44b86408, type: 3}
+  - {fileID: 2898862886088157649, guid: 491c6b0267744594caa8e3bde855de65, type: 3}
+  - {fileID: 2898862886088157649, guid: c2dd0f97b890d0c4da28050319840d59, type: 3}
+  - {fileID: 2898862886088157649, guid: d88d7f578c4685c4ea81bef5cb12948e, type: 3}
+  - {fileID: 2898862886088157649, guid: 445a3af2534ba64429e5cc4adcc336ce, type: 3}
+  - {fileID: 2898862886088157649, guid: c0f5f468eac85a24ba566af11222f107, type: 3}
+  - {fileID: 2898862886088157649, guid: 4646556c60c04034a9ab64cc16b5f879, type: 3}
+  delaySpawn: 2
+  podeSpawnar: 0
+--- !u!1 &7003317240505441360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5015961053824973855}
+  m_Layer: 8
+  m_Name: Boca3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5015961053824973855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7003317240505441360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8863266129557757743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7495098538070377453
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +390,7 @@ GameObject:
   - component: {fileID: 3754823740441224218}
   - component: {fileID: 4342839639323280042}
   - component: {fileID: 7506017465364484406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColisorDano
   m_TagString: ColisorInimigo
   m_Icon: {fileID: 0}

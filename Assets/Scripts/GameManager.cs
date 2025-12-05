@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     // range
     public int delayTiroCusto = 3;
-    public int penetracaoCusto = 3;
+    public int penetracaoCusto = 30;
 
     private AtualizaTextoUpgrades textoUpgrades;
     private ControllerMoedas controllerMoedas;
@@ -49,6 +50,25 @@ public class GameManager : MonoBehaviour
     private SistemaVidaPlayer sistemaVidaPlayer;
     private MovimentoPlayer movimentoPlayer;
     private ArmaMovimento armaScript;
+    private SpawnerInimigos spawnerInimigos;
+
+    [Header("Progressao Jogo")] 
+    public bool lutandoComBoss = false;
+    public List<GameObject> listaBosses;
+    public List<int> inimigosSpawnadosFases;
+    public GameObject doutorPorqueFinal;
+    public GameObject maquinaFeia;
+
+    [Header("Fases de waves")]
+    public List<GameObject> inimigosFase1;
+    public List<GameObject> inimigosBoss1;
+    public List<GameObject> inimigosFase2;
+    public List<GameObject> inimigosBoss2;
+    public List<GameObject> inimigosFase3;
+    public List<GameObject> inimigosBoss3;
+    public List<GameObject> inimigosFase4;
+    public List<GameObject> inimigosBoss4;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,6 +88,99 @@ public class GameManager : MonoBehaviour
 
         menuInventario.SetActive(false);
         menuUpgrade.SetActive(false);
+
+        spawnerInimigos.inimigos = inimigosFase1;
+
+        StartCoroutine(ProgressaoJogo());
+    }
+
+    IEnumerator ProgressaoJogo()
+    {
+        int contBoss = 0;
+
+        // Fase 1
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/4);
+        spawnerInimigos.delaySpawn = 2;
+
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/2);
+        spawnerInimigos.delaySpawn = 1;
+
+        // Boss 1
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]);
+        spawnerInimigos.inimigos = inimigosBoss1;
+        spawnerInimigos.SpawnInimigo(listaBosses[contBoss]);
+        spawnerInimigos.maxInimigos = 100;
+        spawnerInimigos.delaySpawn = 3;
+        lutandoComBoss = true;
+        contBoss += 1;
+
+        // Fase 2
+        yield return new WaitUntil(() => lutandoComBoss = false);
+        spawnerInimigos.inimigos = inimigosFase2;
+        spawnerInimigos.maxInimigos = 200;
+        spawnerInimigos.delaySpawn = 3;
+
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/4);
+        spawnerInimigos.delaySpawn = 2;
+
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/2);
+        spawnerInimigos.delaySpawn = 1;
+
+        // Boss 2
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]);
+        spawnerInimigos.inimigos = inimigosBoss2;
+        spawnerInimigos.SpawnInimigo(listaBosses[contBoss]);
+        spawnerInimigos.maxInimigos = 400;
+        spawnerInimigos.delaySpawn = 2;
+        lutandoComBoss = true;
+        contBoss += 1;
+
+        // Fase 3
+        yield return new WaitUntil(() => lutandoComBoss = false);
+        spawnerInimigos.inimigos = inimigosFase3;
+        spawnerInimigos.maxInimigos = 800;
+        spawnerInimigos.delaySpawn = 2;
+
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/4);
+        spawnerInimigos.delaySpawn = 1;
+
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/2);
+        spawnerInimigos.delaySpawn = 0.5f;
+
+        // Boss 3
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]);
+        spawnerInimigos.inimigos = inimigosBoss3;
+        spawnerInimigos.SpawnInimigo(listaBosses[contBoss]);
+        spawnerInimigos.maxInimigos = 1600;
+        spawnerInimigos.delaySpawn = 0.5f;
+        lutandoComBoss = true;
+        contBoss += 1;
+
+        // Fase Final
+        yield return new WaitUntil(() => lutandoComBoss = false);
+        spawnerInimigos.inimigos = inimigosFase4;
+        spawnerInimigos.maxInimigos = 3200;
+        spawnerInimigos.delaySpawn = 0.5f;
+
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/4);
+        spawnerInimigos.delaySpawn = 0.25f;
+
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/2);
+        spawnerInimigos.delaySpawn = 0.1f;
+
+        // Boss Final
+        yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]);
+        spawnerInimigos.inimigos = inimigosBoss4;
+        spawnerInimigos.SpawnInimigo(doutorPorqueFinal);
+        spawnerInimigos.SpawnInimigo(maquinaFeia);
+        spawnerInimigos.maxInimigos = 6400;
+        spawnerInimigos.delaySpawn = 2;
+
+        lutandoComBoss = true;
+
+        yield return new WaitUntil(() => lutandoComBoss = false);
+
+        // Acaba jogo
     }
 
     public void AdicionaArmaInventario(GameObject armaInv)

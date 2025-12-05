@@ -8,7 +8,9 @@ public class SistemaVidaInimigo : MonoBehaviour
     private ControllerMoedas moedasController;
     private float vidaAtual;
     private Rigidbody2D rb;
-    private SpawnerInimigos spawnerInimigos;
+    public SpawnerInimigos spawnerInimigos;
+    [SerializeField] GameObject efeitoMorte;
+    private GameObject efeitoSpawnado;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,15 +35,17 @@ public class SistemaVidaInimigo : MonoBehaviour
         {
             spawnerInimigos.contInimigos--;
             moedasController.AdicionaMoedas(qntMoedas);
+            efeitoSpawnado = Instantiate(efeitoMorte, transform.position, Quaternion.identity);
+            Destroy(efeitoSpawnado, 0.25f);
             Destroy(gameObject);
         }
 
         Debug.Log("Inimigo Levou dano"); 
     }
     
-    public void LevaKnockBack(Transform atacante, float knockback)
+    public void LevaKnockBack(Transform atacante, float knockback, float mult = 1)
     {
         Vector2 direcao = transform.position - atacante.position;
-        rb.AddForce(direcao*knockback,ForceMode2D.Impulse);
+        rb.AddForce(mult*direcao*knockback,ForceMode2D.Impulse);
     }
 }

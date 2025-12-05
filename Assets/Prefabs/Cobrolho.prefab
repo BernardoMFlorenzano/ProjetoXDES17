@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5397037651931176282}
   - component: {fileID: 8247861056839546722}
   - component: {fileID: 6495911826394113456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1987545275
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 53c7a7472bd1bf54487efaec2e6e3a4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 9015254453779172057}
   - component: {fileID: 1362874697393600303}
   - component: {fileID: 2782326009322459958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cobrolho
   m_TagString: Inimigo
   m_Icon: {fileID: 0}
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57740b6060d854e9746f302c836d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
+  distanciaPlayerMax: 30
   velInimigo: 150
 --- !u!114 &1362874697393600303
 MonoBehaviour:
@@ -252,6 +253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SistemaVidaInimigo
   vidaMax: 2000
   qntMoedas: 1
+  spawnerInimigos: {fileID: 0}
+  efeitoMorte: {fileID: 8784274052710163401, guid: 2fa0f6c57dbbec0408d31400c7caf5d0, type: 3}
 --- !u!114 &2782326009322459958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3215484611221910392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pontaArma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +318,7 @@ GameObject:
   - component: {fileID: 3754823740441224218}
   - component: {fileID: 4342839639323280042}
   - component: {fileID: 7506017465364484406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColisorDano
   m_TagString: ColisorInimigo
   m_Icon: {fileID: 0}

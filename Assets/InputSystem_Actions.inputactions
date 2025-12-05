@@ -591,9 +591,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pausa",
+                    "name": "Inventario",
                     "type": "Button",
                     "id": "dadceef6-4fe2-420c-955b-5c846f057ae5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Upgrade",
+                    "type": "Button",
+                    "id": "892e0022-714b-4287-b39a-94a87fb6f1e5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1026,7 +1035,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Pausa",
+                    "action": "Inventario",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bde7c04b-e30b-4376-a5d9-7469b1ea0653",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Upgrade",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

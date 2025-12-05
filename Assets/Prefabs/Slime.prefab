@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SistemaVidaInimigo
   vidaMax: 50
+  qntMoedas: 1000
 --- !u!1 &7495098538070377453
 GameObject:
   m_ObjectHideFlags: 0

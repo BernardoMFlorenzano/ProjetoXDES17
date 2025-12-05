@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class DanoArma : MonoBehaviour
 {
+    [Header("Atributos padrão")]
+    public float danoPadrao;
+    public float knockbackPadrao;
+    public float tamanhoMultPadrao;
+    public float reflecaoPadrao;
+    [Header("Atributos com modificadores")]
     public float dano;
     public float knockback;
     public float tamanhoMult;

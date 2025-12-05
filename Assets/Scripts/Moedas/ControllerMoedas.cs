@@ -19,10 +19,13 @@ public class ControllerMoedas : MonoBehaviour
         numMoedas.text = (moedas + qnt).ToString();
     }
     
-    public void GastaMoedas(int qnt)
+    public bool GastaMoedas(int qnt)
     {
         moedas = PlayerPrefs.GetInt("Moedas", 0);
+        if (moedas - qnt < 0)
+            return false;
         PlayerPrefs.SetInt("Moedas", moedas - qnt);
         numMoedas.text = (moedas - qnt).ToString();
+        return true;
     }
 }

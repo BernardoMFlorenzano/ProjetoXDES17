@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class TiroArma : MonoBehaviour
 {
+    [Header("Atributos padrão")]
+    public float danoPadrao;
+    public float knockbackPadrao;
+    public int penetracaoPadrao;
+    public float delayTiroPadrao;
+    [Header("Atributos com modificadores")]
     public float dano;
     public float knockback;
     public int penetracao;

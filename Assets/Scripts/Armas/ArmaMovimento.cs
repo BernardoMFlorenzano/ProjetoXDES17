@@ -12,10 +12,12 @@ public class ArmaMovimento : MonoBehaviour
     private Transform comecoBraco;
     private float distancia;
     private bool playerVirado = false;
-    private GameObject armaAtual;
+    public GameObject armaAtual;
     private GameManager gameManager;
     [SerializeField] private Transform transformPlayer;
     [SerializeField] private float distanciaMax;
+
+    [SerializeField] GameObject slotArmaEquip;
 
     void Awake()
     {
@@ -27,7 +29,11 @@ public class ArmaMovimento : MonoBehaviour
     {
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         comecoBraco = transform.parent;
-        armaAtual = transform.GetChild(0).gameObject;
+        TrocaArma(gameManager.armaInicial);
+        GameObject armaInv = Instantiate(gameManager.armaInicialInv, slotArmaEquip.transform);
+        slotArmaEquip.GetComponent<SlotArma>().armaAtual = armaInv;
+
+        //armaAtual = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -81,27 +87,33 @@ public class ArmaMovimento : MonoBehaviour
         {
             armaAtual = Instantiate(novaArma, this.transform);
 
-            TiroArma armaRange = armaAtual.GetComponent<TiroArma>();
-            DanoArma armaMelee = armaAtual.GetComponent<DanoArma>();
-
-            if (armaRange != null)
-            {
-                armaRange.dano *= gameManager.multDano;
-                armaRange.knockback *= gameManager.multKnockback;
-                armaRange.penetracao += gameManager.penetracaoBonus;
-                armaRange.delayTiro /= gameManager.multDelayTiro;
-            }
-
-            if (armaMelee != null)
-            {
-                armaMelee.dano *= gameManager.multDano;
-                armaMelee.knockback *= gameManager.multKnockback;
-                armaMelee.tamanhoMult *= gameManager.multTamanho;
-                armaMelee.reflecao += gameManager.refleteBonus;
-                armaMelee.AtualizaAtributos();
-            }
+            AtualizaArma(armaAtual);
         }
-            
     }
 
+    public void AtualizaArma(GameObject arma)
+    {
+        Debug.Log("Atualizou arma");
+        TiroArma armaRange = arma.GetComponent<TiroArma>();
+        DanoArma armaMelee = arma.GetComponent<DanoArma>();
+
+        if (armaRange != null)
+        {
+            Debug.Log("Atualizou arma range");
+            armaRange.dano = armaRange.danoPadrao * gameManager.multDano;
+            armaRange.knockback = armaRange.knockbackPadrao * gameManager.multKnockback;
+            armaRange.penetracao = armaRange.penetracaoPadrao + gameManager.penetracaoBonus;
+            armaRange.delayTiro = armaRange.delayTiroPadrao / gameManager.multDelayTiro;
+        }
+
+        if (armaMelee != null)
+        {
+            Debug.Log("Atualizou arma melee");
+            armaMelee.dano = armaMelee.danoPadrao * gameManager.multDano;
+            armaMelee.knockback = armaMelee.knockbackPadrao * gameManager.multKnockback;
+            armaMelee.tamanhoMult = armaMelee.tamanhoMultPadrao * gameManager.multTamanho;
+            armaMelee.reflecao = armaMelee.reflecaoPadrao + gameManager.refleteBonus;
+            armaMelee.AtualizaAtributos();
+        }
+    }
 }

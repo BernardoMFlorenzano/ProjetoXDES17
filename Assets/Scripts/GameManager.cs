@@ -1,11 +1,16 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public bool pausado = false;
-    [SerializeField] GameObject menuPausa;
+    [SerializeField] GameObject menuInventario;
+    [SerializeField] GameObject menuUpgrade;
     public GameObject armaInicial;
+    public GameObject armaInicialInv;
+    [SerializeField] Transform SlotsParent;
+    public List<GameObject> listaSlotInv;
 
     [Header("Atributos")]
     public float multDano = 1f;
@@ -22,72 +27,189 @@ public class GameManager : MonoBehaviour
     public float multDelayTiro = 1f;
     public int penetracaoBonus = 0;
 
+    [Header("Custo Atributos")]
+
+    public int danoCusto = 3;
+    public int knockbackCusto = 3;
+    public int movimentoCusto = 3;
+    public int vidaCusto = 3;
+    public int regenCusto = 3;
+
+    // melee
+    public int tamanhoCusto = 3;
+    public int refleteCusto = 3;
+
+    // range
+    public int delayTiroCusto = 3;
+    public int penetracaoCusto = 3;
+
     private AtualizaTextoUpgrades textoUpgrades;
+    private ControllerMoedas controllerMoedas;
+    private GameObject player;
+    private SistemaVidaPlayer sistemaVidaPlayer;
+    private MovimentoPlayer movimentoPlayer;
+    private ArmaMovimento armaScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         textoUpgrades = GetComponent<AtualizaTextoUpgrades>();
-        menuPausa.SetActive(false);
+        controllerMoedas = GetComponent<ControllerMoedas>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        sistemaVidaPlayer = player.GetComponent<SistemaVidaPlayer>();
+        movimentoPlayer = player.GetComponent<MovimentoPlayer>();
+        armaScript = GameObject.FindGameObjectWithTag("ArmaPlayer").GetComponent<ArmaMovimento>();
+
+        for(int i = 7; i < 15; i++)
+        {
+            listaSlotInv.Add(SlotsParent.GetChild(i).gameObject);
+        }
+
+        menuInventario.SetActive(false);
+        menuUpgrade.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AdicionaArmaInventario(GameObject armaInv)
     {
-        
+        foreach(GameObject slot in listaSlotInv)
+        {
+            if (slot.GetComponent<SlotArma>().armaAtual == null)
+            {
+                GameObject novaArmaInv = Instantiate(armaInv, slot.transform);
+                slot.GetComponent<SlotArma>().armaAtual = novaArmaInv;
+                break;
+            }
+        }
+    }
+
+    // TESTE
+    public void AdicionaItem(GameObject itemInv)
+    {
+        AdicionaArmaInventario(itemInv);
+    }
+
+    public void AtualizaAtributosPlayer()
+    {
+        movimentoPlayer.velPlayer = movimentoPlayer.velPlayerPadrao * multMovimento;
+        sistemaVidaPlayer.vidaMax = sistemaVidaPlayer.vidaMaxPadrao * multVida;
+        sistemaVidaPlayer.vidaRegen = sistemaVidaPlayer.vidaRegenPadrao + multRegen;
     }
 
     public void AlteraDano(float val)
     {
-        multDano *= val;
+        if (controllerMoedas.GastaMoedas(danoCusto))
+        {
+            multDano *= val;
+            danoCusto = Mathf.CeilToInt(danoCusto * 1.333f);
+        }
+
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraKnock(float val)
     {
-        multKnockback *= val;
+        if (controllerMoedas.GastaMoedas(knockbackCusto))
+        {
+            multKnockback *= val;
+            knockbackCusto = Mathf.CeilToInt(knockbackCusto * 1.333f);
+        }
+
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraMovimento(float val)
     {
-        multMovimento *= val;
+        if (controllerMoedas.GastaMoedas(movimentoCusto))
+        {
+            multMovimento *= val;
+            movimentoCusto = Mathf.CeilToInt(movimentoCusto * 1.333f);
+        }
+
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraVida(float val)
     {
-        multVida *= val;
+        if (controllerMoedas.GastaMoedas(vidaCusto))
+        {
+            multVida *= val;
+            vidaCusto = Mathf.CeilToInt(vidaCusto * 1.333f);
+        }
+
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraRegen(float val)
     {
-        multRegen += val;
+        if (controllerMoedas.GastaMoedas(regenCusto))
+        {
+            multRegen += val;
+            regenCusto = Mathf.CeilToInt(regenCusto * 1.333f);
+        }
+                
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraTamanho(float val)
     {
-        multTamanho *= val;
+        if (controllerMoedas.GastaMoedas(tamanhoCusto))
+        {
+            multTamanho *= val;
+            tamanhoCusto = Mathf.CeilToInt(tamanhoCusto * 1.333f);
+        }
+                
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraReflecao(float val)
     {
-        refleteBonus += val;
+        if (controllerMoedas.GastaMoedas(refleteCusto))
+        {
+            refleteBonus += val;
+            refleteCusto = Mathf.CeilToInt(refleteCusto * 1.333f);
+        }
+                
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraDelayTiro(float val)
     {
-        multDelayTiro *= val;
+        if (controllerMoedas.GastaMoedas(delayTiroCusto))
+        {
+            multDelayTiro *= val;
+            delayTiroCusto = Mathf.CeilToInt(delayTiroCusto * 1.333f);
+        }
+                
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
     public void AlteraPenetracao(int val)
     {
-        penetracaoBonus += val;
+        if (controllerMoedas.GastaMoedas(penetracaoCusto))
+        {
+            penetracaoBonus += val;
+            penetracaoCusto = Mathf.CeilToInt(penetracaoCusto * 1.333f);
+        }
+                
+        armaScript.AtualizaArma(armaScript.armaAtual);
+        AtualizaAtributosPlayer();
         textoUpgrades.AtualizaTextoAtributos();
     }
 
@@ -97,16 +219,42 @@ public class GameManager : MonoBehaviour
         Debug.Log("Pausou/Despausou");
         if (pausado)
         {
-            menuPausa.SetActive(false);
             Time.timeScale = 1f;
         }
         else
         {
-            menuPausa.SetActive(true);
             Time.timeScale = 0f;
         }
 
         pausado = !pausado;
+    }
+
+    public void AbreInventario()
+    {
+        PausaJogo();
+        if (pausado)
+        {
+            menuInventario.SetActive(true);
+        }
+        else
+        {
+            menuInventario.SetActive(false);
+            menuUpgrade.SetActive(false);
+        }
+    }
+
+    public void AbreUpgrades()
+    {
+        PausaJogo();
+        if (pausado)
+        {
+            menuUpgrade.SetActive(true);
+        }
+        else
+        {
+            menuInventario.SetActive(false);
+            menuUpgrade.SetActive(false);
+        }
     }
 
     public void FechaJogo()

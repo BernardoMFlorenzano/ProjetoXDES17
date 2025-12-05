@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 
 public class MovimentoPlayer : MonoBehaviour
 {
-    [SerializeField] private float velPlayer;
+    public float velPlayerPadrao = 5f;
+    public float velPlayer;
     [SerializeField] private Animator animatorPlayer;
     private Vector2 direcaoMov;
     private Rigidbody2D rb;
@@ -23,6 +24,7 @@ public class MovimentoPlayer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        velPlayer = velPlayerPadrao;
     }
 
     void OnMove(InputValue direcao)
@@ -44,9 +46,15 @@ public class MovimentoPlayer : MonoBehaviour
     }
 
 
-    // Função pra pausar o jogo
-    void OnPausa()
+    // Função pra abrir inventario
+    void OnInventario()
     {
-        gameManager.PausaJogo();
+        gameManager.AbreInventario();
+    }
+
+    // Função pra abrir menu upgrade
+    void OnUpgrade()
+    {
+        gameManager.AbreUpgrades();
     }
 }

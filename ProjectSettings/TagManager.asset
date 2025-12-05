@@ -9,15 +9,16 @@ TagManager:
   - SpawnerController
   - GameManager
   - Coracao
+  - ArmaPlayer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - BoundBox
+  - LimiteFolha
   - 
   - 
   - 

@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     private SistemaVidaPlayer sistemaVidaPlayer;
     private MovimentoPlayer movimentoPlayer;
     private ArmaMovimento armaScript;
-    private SpawnerInimigos spawnerInimigos;
+    [SerializeField] private SpawnerInimigos spawnerInimigos;
 
     [Header("Progressao Jogo")] 
     public bool lutandoComBoss = false;
@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         movimentoPlayer = player.GetComponent<MovimentoPlayer>();
         armaScript = GameObject.FindGameObjectWithTag("ArmaPlayer").GetComponent<ArmaMovimento>();
 
+
         for(int i = 7; i < 15; i++)
         {
             listaSlotInv.Add(SlotsParent.GetChild(i).gameObject);
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
     IEnumerator ProgressaoJogo()
     {
         int contBoss = 0;
+        spawnerInimigos.delaySpawn = 4;
 
         // Fase 1
         yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/4);
@@ -115,7 +117,7 @@ public class GameManager : MonoBehaviour
         contBoss += 1;
 
         // Fase 2
-        yield return new WaitUntil(() => lutandoComBoss = false);
+        yield return new WaitUntil(() => lutandoComBoss == false);
         spawnerInimigos.inimigos = inimigosFase2;
         spawnerInimigos.maxInimigos = 200;
         spawnerInimigos.delaySpawn = 3;
@@ -136,7 +138,7 @@ public class GameManager : MonoBehaviour
         contBoss += 1;
 
         // Fase 3
-        yield return new WaitUntil(() => lutandoComBoss = false);
+        yield return new WaitUntil(() => lutandoComBoss == false);
         spawnerInimigos.inimigos = inimigosFase3;
         spawnerInimigos.maxInimigos = 800;
         spawnerInimigos.delaySpawn = 2;
@@ -157,7 +159,7 @@ public class GameManager : MonoBehaviour
         contBoss += 1;
 
         // Fase Final
-        yield return new WaitUntil(() => lutandoComBoss = false);
+        yield return new WaitUntil(() => lutandoComBoss == false);
         spawnerInimigos.inimigos = inimigosFase4;
         spawnerInimigos.maxInimigos = 3200;
         spawnerInimigos.delaySpawn = 0.5f;
@@ -178,7 +180,7 @@ public class GameManager : MonoBehaviour
 
         lutandoComBoss = true;
 
-        yield return new WaitUntil(() => lutandoComBoss = false);
+        yield return new WaitUntil(() => lutandoComBoss == false);
 
         // Acaba jogo
     }

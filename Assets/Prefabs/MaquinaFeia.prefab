@@ -139,8 +139,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1987545275
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2331765927823414560, guid: c78d27badb194fd409d08991fec3dad1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,7 +186,6 @@ GameObject:
   - component: {fileID: 8863266129557757743}
   - component: {fileID: 3201409168356574032}
   - component: {fileID: 4233570956418070986}
-  - component: {fileID: 9015254453779172057}
   - component: {fileID: 1362874697393600303}
   - component: {fileID: 5700515462030924848}
   m_Layer: 8
@@ -289,20 +288,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.9570632, y: 1.694007}
   m_EdgeRadius: 0
---- !u!114 &9015254453779172057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2898862886088157649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b57740b6060d854e9746f302c836d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
-  distanciaPlayerMax: 30
-  velInimigo: 0
 --- !u!114 &1362874697393600303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58fd31a301481b4588dea3a7a297333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnInimigoFilho
-  forcaImpulsoSpawn: 10
+  forcaImpulsoSpawn: 15
   tipoSpawn: 0
   spawnPoints:
   - {fileID: 6097913146233103039}

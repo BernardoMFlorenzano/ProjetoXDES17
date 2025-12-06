@@ -195,7 +195,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 100
   m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
   distanciaPlayerMax: 30
-  velInimigo: 100
+  velInimigo: 10
 --- !u!114 &1362874697393600303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   tipoSpawn: 1
   spawnPoints:
   - {fileID: 86246380174866072}
-  Inimigos:
+  inimigos:
   - {fileID: 2898862886088157649, guid: 445a3af2534ba64429e5cc4adcc336ce, type: 3}
   delaySpawn: 4
   podeSpawnar: 0

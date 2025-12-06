@@ -106,13 +106,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TiroArma
   danoPadrao: 20
   knockbackPadrao: 10
-  penetracaoPadrao: 0
+  penetracaoPadrao: 1
   delayTiroPadrao: 1
   dano: 0
   knockback: 0
   penetracao: 0
   delayTiro: 0
-  velTiro: 25
+  velTiro: 30
   tiroPrefab: {fileID: 1697723071584207497, guid: 3d29d6bb7baa22049874d64cb686dc6e, type: 3}
   pontaArma: {fileID: 5166188088238653567}
   podeAtirar: 1

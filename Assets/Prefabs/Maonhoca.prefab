@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408597597163911013}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PontaArma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5397037651931176282}
   - component: {fileID: 8247861056839546722}
   - component: {fileID: 6495911826394113456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 9015254453779172057}
   - component: {fileID: 1362874697393600303}
   - component: {fileID: 2861837195860238081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Maonhoca
   m_TagString: Inimigo
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
   distanciaPlayerMax: 30
-  velInimigo: 150
+  velInimigo: 15
 --- !u!114 &1362874697393600303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 3754823740441224218}
   - component: {fileID: 4342839639323280042}
   - component: {fileID: 7506017465364484406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ColisorDano
   m_TagString: ColisorInimigo
   m_Icon: {fileID: 0}

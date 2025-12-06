@@ -30,6 +30,7 @@ public class SistemaVidaInimigo : MonoBehaviour
     public void LevaDano(float dano)
     {
         vidaAtual -= dano;
+        Debug.Log(vidaAtual);
 
         if (vidaAtual <= 0)
         {

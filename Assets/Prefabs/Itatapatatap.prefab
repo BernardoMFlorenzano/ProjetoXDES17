@@ -162,7 +162,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 150
   m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
   distanciaPlayerMax: 30
-  velInimigo: 150
+  velInimigo: 15
 --- !u!114 &1362874697393600303
 MonoBehaviour:
   m_ObjectHideFlags: 0

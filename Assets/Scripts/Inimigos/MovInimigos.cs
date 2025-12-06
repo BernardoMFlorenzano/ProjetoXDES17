@@ -29,7 +29,7 @@ public class MovInimigos : MonoBehaviour
             sistemaVidaInimigo.spawnerInimigos.Respawn(this.transform);
         }
 
-        rb.AddForce(direcaoPlayer * velInimigo);
+        rb.AddForce(direcaoPlayer * velInimigo * rb.mass);
 
         if (player.position.x < transform.position.x)
         {

@@ -5040,12 +5040,13 @@ MonoBehaviour:
   refleteCusto: 3
   delayTiroCusto: 3
   penetracaoCusto: 30
+  spawnerInimigos: {fileID: 705167110}
   lutandoComBoss: 0
   listaBosses:
   - {fileID: 2898862886088157649, guid: 42e4f45f547e1d941979c5d2496ed83d, type: 3}
   - {fileID: 2898862886088157649, guid: b0195dcfe19828e44aba78953f1df564, type: 3}
   - {fileID: 2898862886088157649, guid: f36eaa253fb0efd4cb6e2bff5a5536b4, type: 3}
-  inimigosSpawnadosFases: f4010000dc050000b80b000088130000
+  inimigosSpawnadosFases: 0a000000140000001e00000028000000
   doutorPorqueFinal: {fileID: 2898862886088157649, guid: 7944d6bd06c5267459a440dbc77831e2, type: 3}
   maquinaFeia: {fileID: 2898862886088157649, guid: 70eaa5cb34c5833428af08b1e1d4095d, type: 3}
   inimigosFase1:

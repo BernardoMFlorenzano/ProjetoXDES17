@@ -40,6 +40,7 @@ public class SpawnerInimigos : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(delaySpawn);
             if (podeSpawnar)
             {
                 spawnPos = Random.Range(0, spawnPoints.Count);
@@ -53,7 +54,6 @@ public class SpawnerInimigos : MonoBehaviour
                         inimigosSpawnados++;
                 }
             }
-            yield return new WaitForSeconds(delaySpawn);
         }
     }
 

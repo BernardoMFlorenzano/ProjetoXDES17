@@ -252,9 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SistemaVidaInimigo
   vidaMax: 2000
-  qntMoedas: 1
+  qntMoedas: 2000
   spawnerInimigos: {fileID: 0}
   efeitoMorte: {fileID: 8784274052710163401, guid: 2fa0f6c57dbbec0408d31400c7caf5d0, type: 3}
+  boss: 1
+  raridadeRecompensa: 1
+  recompensa: {fileID: 6362401773701367961, guid: 9c5af93709b3cdc48adf89a0663ff8c3, type: 3}
 --- !u!114 &2782326009322459958
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,17 +16,19 @@ public class TiroArma : MonoBehaviour
     public float velTiro;
 
     [SerializeField] private GameObject tiroPrefab;
-    [SerializeField] private Transform pontaArma;
+    public Transform pontaArma;
     public bool podeAtirar = true;
     private SistemaVidaInimigo sistemaVidaInimigo;
-    private Transform player;
+    public Transform player;
     private GameObject tiro;
     private MovTiro movTiro;
+    private TiroEspecial tiroEspecial;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        tiroEspecial = GetComponent<TiroEspecial>();
         StartCoroutine(Atira());
     }
 
@@ -37,14 +39,7 @@ public class TiroArma : MonoBehaviour
             yield return new WaitForSeconds(delayTiro);
             if (podeAtirar)
             {
-                tiro = Instantiate(tiroPrefab, pontaArma.position, pontaArma.rotation);
-                movTiro = tiro.GetComponent<MovTiro>();
-                movTiro.dano = dano;
-                movTiro.knockback = knockback;
-                movTiro.penetracao = penetracao;
-                movTiro.velTiro = velTiro;
-                movTiro.player = player;
-                // SE TIRO NÃO SE MEXER PODE SER POR CAUSA DAQUI
+                tiroEspecial.AtiraEspecial(tiroPrefab);
             }
         }
     }

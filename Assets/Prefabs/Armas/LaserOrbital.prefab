@@ -116,6 +116,7 @@ MonoBehaviour:
   tiroPrefab: {fileID: 1697723071584207497, guid: 3d29d6bb7baa22049874d64cb686dc6e, type: 3}
   pontaArma: {fileID: 5166188088238653567}
   podeAtirar: 1
+  player: {fileID: 0}
 --- !u!1 &3674049831329192853
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 3674049831329192853}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.354, y: 0.06, z: 0}
+  m_LocalPosition: {x: 4.12, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

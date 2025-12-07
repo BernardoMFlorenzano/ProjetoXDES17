@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SistemaVidaInimigo : MonoBehaviour
@@ -12,13 +13,22 @@ public class SistemaVidaInimigo : MonoBehaviour
     [SerializeField] GameObject efeitoMorte;
     private GameObject efeitoSpawnado;
 
+    [Header("Bosses")]
+    public bool boss = false;
+    public bool maquina = false;
+    public int raridadeRecompensa;
+    public GameObject recompensa;
+    private GameManager gameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         vidaAtual = vidaMax;
         rb = GetComponent<Rigidbody2D>();
         spawnerInimigos = GameObject.FindGameObjectWithTag("SpawnerController").GetComponent<SpawnerInimigos>();
-        moedasController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ControllerMoedas>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        moedasController = gameManager.gameObject.GetComponent<ControllerMoedas>();
+
     }
 
     // Update is called once per frame
@@ -37,6 +47,15 @@ public class SistemaVidaInimigo : MonoBehaviour
             spawnerInimigos.contInimigos--;
             moedasController.AdicionaMoedas(qntMoedas);
             efeitoSpawnado = Instantiate(efeitoMorte, transform.position, Quaternion.identity);
+
+            if (boss)
+            {
+                RecompensaArma presente = Instantiate(recompensa, transform.position, quaternion.identity).GetComponent<RecompensaArma>();
+                presente.raridade = raridadeRecompensa;
+                if (!maquina)
+                    gameManager.lutandoComBoss = false;
+            }
+
             Destroy(efeitoSpawnado, 0.25f);
             Destroy(gameObject);
         }

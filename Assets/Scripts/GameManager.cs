@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public bool pausado = false;
     [SerializeField] GameObject menuInventario;
     [SerializeField] GameObject menuUpgrade;
+    public GeraEscolhaArma geraEscolhaArma;
     public GameObject armaInicial;
     public GameObject armaInicialInv;
     [SerializeField] Transform SlotsParent;
@@ -51,6 +53,8 @@ public class GameManager : MonoBehaviour
     private MovimentoPlayer movimentoPlayer;
     private ArmaMovimento armaScript;
     [SerializeField] private SpawnerInimigos spawnerInimigos;
+
+    public bool escolhendoArma = false;
 
     [Header("Progressao Jogo")] 
     public bool lutandoComBoss = false;
@@ -98,7 +102,7 @@ public class GameManager : MonoBehaviour
     IEnumerator ProgressaoJogo()
     {
         int contBoss = 0;
-        spawnerInimigos.delaySpawn = 4;
+        spawnerInimigos.delaySpawn = 3;
 
         // Fase 1
         yield return new WaitUntil(() => spawnerInimigos.inimigosSpawnados >= inimigosSpawnadosFases[contBoss]/4);
@@ -112,7 +116,7 @@ public class GameManager : MonoBehaviour
         spawnerInimigos.inimigos = inimigosBoss1;
         spawnerInimigos.SpawnInimigo(listaBosses[contBoss]);
         spawnerInimigos.maxInimigos = 100;
-        spawnerInimigos.delaySpawn = 3;
+        spawnerInimigos.delaySpawn = 4;
         lutandoComBoss = true;
         contBoss += 1;
 
@@ -183,6 +187,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => lutandoComBoss == false);
 
         // Acaba jogo
+        SceneManager.LoadScene(2);
     }
 
     public void AdicionaArmaInventario(GameObject armaInv)
@@ -346,6 +351,9 @@ public class GameManager : MonoBehaviour
 
     public void AbreInventario()
     {
+        if (escolhendoArma)
+            return;
+
         PausaJogo();
         if (pausado)
         {
@@ -360,6 +368,9 @@ public class GameManager : MonoBehaviour
 
     public void AbreUpgrades()
     {
+        if (escolhendoArma)
+            return;
+
         PausaJogo();
         if (pausado)
         {

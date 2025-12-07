@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc641859a9602184898fecdc25fafbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DanoArma
-  danoPadrao: 15
-  knockbackPadrao: 100
+  danoPadrao: 600
+  knockbackPadrao: 200
   tamanhoMultPadrao: 1
   reflecaoPadrao: 0
   dano: 0

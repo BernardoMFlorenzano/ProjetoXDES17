@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7626017234432563459}
   - component: {fileID: 5050404875316073892}
   - component: {fileID: 1475789128795331049}
+  - component: {fileID: 105567077201647525}
   m_Layer: 0
   m_Name: Ak
   m_TagString: Untagged
@@ -107,7 +108,7 @@ MonoBehaviour:
   danoPadrao: 10
   knockbackPadrao: 10
   penetracaoPadrao: 0
-  delayTiroPadrao: 0.5
+  delayTiroPadrao: 0.25
   dano: 0
   knockback: 0
   penetracao: 0
@@ -116,6 +117,22 @@ MonoBehaviour:
   tiroPrefab: {fileID: 1697723071584207497, guid: 3d29d6bb7baa22049874d64cb686dc6e, type: 3}
   pontaArma: {fileID: 5166188088238653567}
   podeAtirar: 1
+  player: {fileID: 0}
+--- !u!114 &105567077201647525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164652107900211646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f14a70fb30014d4aaa78e5cb2221456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TiroEspecial
+  arma: 3
+  rangeVarVel: 0
+  rangeVarRot: 5
 --- !u!1 &3674049831329192853
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 3674049831329192853}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.354, y: 0.06, z: 0}
+  m_LocalPosition: {x: 1.365, y: 0.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

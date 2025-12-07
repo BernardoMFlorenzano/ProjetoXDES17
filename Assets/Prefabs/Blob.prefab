@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovInimigos
   distanciaPlayerMax: 30
-  velInimigo: 15
+  velInimigo: 17.5
 --- !u!114 &1362874697393600303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,10 +249,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e4884bde29a30439e0f2448614ab36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SistemaVidaInimigo
-  vidaMax: 50
+  vidaMax: 25
   qntMoedas: 1
   spawnerInimigos: {fileID: 0}
   efeitoMorte: {fileID: 8784274052710163401, guid: 2fa0f6c57dbbec0408d31400c7caf5d0, type: 3}
+  boss: 0
+  maquina: 0
+  raridadeRecompensa: 0
+  recompensa: {fileID: 0}
 --- !u!1 &7495098538070377453
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,4 +348,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10a610bda034e046a093e400838f11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoColisor
-  dano: 1
+  dano: 0.5

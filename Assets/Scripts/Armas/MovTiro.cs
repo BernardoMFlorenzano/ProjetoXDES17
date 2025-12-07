@@ -8,6 +8,7 @@ public class MovTiro : MonoBehaviour
     public int penetracao = 0;
     public float velTiro;
     public Transform player;
+    public float varPrecisao = 0f;
 
     private Rigidbody2D rb;
     private SistemaVidaInimigo sistemaVidaInimigo;
@@ -18,7 +19,12 @@ public class MovTiro : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
         mousePos.z = 0f;
-        rb.linearVelocity = velTiro * (mousePos - player.position).normalized;
+        Vector3 direcao = mousePos - player.position;
+        Quaternion rotacaoPrecisao = Quaternion.Euler(0, 0, varPrecisao);
+        direcao = rotacaoPrecisao * direcao;
+        rb.linearVelocity = velTiro * direcao.normalized;
+
+        varPrecisao = 0f;
         Destroy(gameObject, 10f);
     }
 

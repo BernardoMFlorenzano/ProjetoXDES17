@@ -45,7 +45,7 @@ public class SistemaVidaPlayer : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(3);
         }
 
         Debug.Log("Player Levou dano"); 

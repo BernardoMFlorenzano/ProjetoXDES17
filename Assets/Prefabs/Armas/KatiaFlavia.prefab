@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7626017234432563459}
   - component: {fileID: 5050404875316073892}
   - component: {fileID: 1475789128795331049}
+  - component: {fileID: 7368928004727973273}
   m_Layer: 0
   m_Name: KatiaFlavia
   m_TagString: Untagged
@@ -104,18 +105,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6a572dcb927d4428a477920cd24803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TiroArma
-  danoPadrao: 7.5
+  danoPadrao: 25
   knockbackPadrao: 10
-  penetracaoPadrao: 15
-  delayTiroPadrao: 0.25
+  penetracaoPadrao: 30
+  delayTiroPadrao: 0.1
   dano: 0
   knockback: 0
   penetracao: 0
   delayTiro: 0
   velTiro: 15
-  tiroPrefab: {fileID: 1697723071584207497, guid: 3d29d6bb7baa22049874d64cb686dc6e, type: 3}
+  tiroPrefab: {fileID: 7579327317117740689, guid: 2b541d27023c8514e961ac9e7bce2d2a, type: 3}
   pontaArma: {fileID: 5166188088238653567}
   podeAtirar: 1
+  player: {fileID: 0}
+--- !u!114 &7368928004727973273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164652107900211646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f14a70fb30014d4aaa78e5cb2221456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TiroEspecial
+  arma: 9
+  rangeVarVel: 7.5
+  rangeVarRot: 25
 --- !u!1 &3674049831329192853
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 3674049831329192853}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.354, y: 0.06, z: 0}
+  m_LocalPosition: {x: 1.932, y: -0.083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
